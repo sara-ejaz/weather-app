@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+    }
+
+    .container {
+      width: 320px;
+    }
+
+    .search-box {
+      display: flex;
+      margin-bottom: 15px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 8px 0 0 8px;
+    }
+
+    .search-box button {
+      padding: 10px 15px;
+      border: none;
+      background: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .weather-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .weather-main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .weather-main img {
+      width: 60px;
+      margin-right: 10px;
+    }
+
+    .weather-main h1 {
+      font-size: 40px;
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .detail-box {
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 8px;
+      width: 45%;
+    }
+
+    .loading {
+      display: none;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .error {
+      display: none;
+      margin-top: 10px;
+      color: red;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Search -->
+    <div class="search-box">
+      <input type="text" id="cityInput" placeholder="Enter city name...">
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <!-- Weather -->
+    <div class="weather-card">
+      <h2 id="cityName">City Name</h2>
+      <p id="date">--</p>
+
+      <div class="weather-main">
+        <img id="weatherIcon" src="https://cdn-icons-png.flaticon.com/512/869/869869.png">
+        <h1 id="temperature">--°C</h1>
+      </div>
+
+      <p id="description">--</p>
+
+      <div class="details">
+        <div class="detail-box">
+          <p>description</p>
+          <h3 id="humidity">--%</h3>
+        </div>
+
+        <div class="detail-box">
+          <p>Wind</p>
+          <h3 id="wind">-- km/h</h3>
+        </div>
+      </div>
+
+      <p class="loading" id="loading">Loading...</p>
+      <p class="error" id="error">City not found</p>
+    </div>
+
+  </div>
+<script src="api.js"></script>
+</body>
+</html>
